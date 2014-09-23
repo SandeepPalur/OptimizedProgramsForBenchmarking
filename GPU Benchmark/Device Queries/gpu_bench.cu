@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <string.h>
 #include <cuda.h>
-#define NUM_CYCLES 500
+#define NUM_CYCLES 250
 
 __global__ void add( int *a, int *b, int *c ) {
  int tid = blockIdx.x*blockDim.x+threadIdx.x; // handle the data at this index
