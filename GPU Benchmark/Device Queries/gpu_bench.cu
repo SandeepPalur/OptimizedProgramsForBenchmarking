@@ -3,14 +3,11 @@
 #include <sys/time.h>
 #include <string.h>
 #include <cuda.h>
-#define NUM_CYCLES 50
+#define NUM_CYCLES 250
 
 __global__ void add( int *a, int *b, int *c ) {
  int tid = blockIdx.x*blockDim.x+threadIdx.x; // handle the data at this index
-   c[tid]=a[tid] + b[tid];
-   a[tid]=a[tid] + b[tid];
-   c[tid]=a[tid] + b[tid];
-
+   c[tid] = a[tid] + b[tid];
  
 }
 
@@ -49,7 +46,7 @@ cudaMalloc( (void**)&dev_b, n * sizeof(int) );
 cudaMalloc( (void**)&dev_c, n * sizeof(int) );
  // fill the arrays 'a' and 'b' on the CPU
  for (int i=0; i<n; i++) {
- a[i] = 23434;
+ a[i] = -i;
  b[i] = i * i;
  }
 cudaMemcpy( dev_a, a, n * sizeof(int),cudaMemcpyHostToDevice );
@@ -70,7 +67,7 @@ cudaMemcpy( c, dev_c, n * sizeof(int),cudaMemcpyDeviceToHost );
  // free the memory allocated on the GPU
 time_s=end_time-start_time;
 printf("Time taken: %lf",time_s);
-printf("GFLOPS: %lf",(double)(NUM_CYCLES*n*3)/(time_s*1000));
+printf("GFLOPS: %lf",(double)(NUM_CYCLES*n*3)/(time_s*1000000000));
 
  cudaFree( dev_a );
  cudaFree( dev_b );
