@@ -3,7 +3,7 @@
 #include<sys/time.h>
 #include<pthread.h>
 #include<string.h>
-#define NUM_THREADS 4
+#define NUM_THREADS 2
 #define NUM_BLOCKS 10485760
 int choice;
 long start_time[NUM_THREADS];
