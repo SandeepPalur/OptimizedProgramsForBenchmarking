@@ -11,7 +11,7 @@
 #include <pthread.h>
 #define NUM_BLOCKS 1
 #define NUM_CLIENTS 1
-#define BLOCK_SIZE 1024   // 65536 - 64KB
+#define BLOCK_SIZE 1   // 65536 - 64KB
 void *connection_handler(void *);
 
 int main(int argc, char *argv[])

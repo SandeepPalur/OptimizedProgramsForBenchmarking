@@ -8,9 +8,9 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <pthread.h>
-#define NUM_CLIENTS 32
-#define NUM_BLOCKS 10000000
-#define BLOCK_SIZE 65507
+#define NUM_CLIENTS 1
+#define NUM_BLOCKS 1
+#define BLOCK_SIZE 1
 long start_times[NUM_CLIENTS];
 long end_times[NUM_CLIENTS];
 void *connection_handler(void *);

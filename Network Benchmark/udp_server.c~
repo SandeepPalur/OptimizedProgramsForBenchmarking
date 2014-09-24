@@ -8,9 +8,9 @@
 #include <unistd.h>
 #include <pthread.h>
 
-#define NUM_CLIENTS 1
-#define NUM_BLOCKS 1
-#define BLOCK_SIZE 1    //for UDP (65535-(20+8))
+#define NUM_CLIENTS 32
+#define NUM_BLOCKS 10000000
+#define BLOCK_SIZE 65507    //for UDP (65535-(20+8))
 void *connection_handler(void *);
 int main(int argc, char* argv[]) {
   
